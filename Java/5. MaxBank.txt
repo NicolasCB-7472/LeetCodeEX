@@ -1,0 +1,15 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {  
+        int bank_max = 0;
+        for(int[] customer : accounts){
+            int bank_total = 0;
+            for(int bank : customer){
+                bank_total += bank;
+            }
+            if(bank_total>bank_max){
+                bank_max=bank_total;
+            }
+        }
+        return bank_max;
+    }
+}

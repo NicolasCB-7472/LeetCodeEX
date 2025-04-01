@@ -1,0 +1,15 @@
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode resultado = head;
+        int size=0;
+        while(head != null){
+            head=head.next;
+            size++;
+        }
+        for(size/=2; size>0; size--){
+            resultado=resultado.next;
+        }
+
+        return resultado;
+    }
+}

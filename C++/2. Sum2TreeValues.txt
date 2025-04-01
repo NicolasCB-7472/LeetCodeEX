@@ -1,0 +1,10 @@
+class Solution {
+public:
+    bool checkTree(TreeNode* root) {
+        bool checked_result=false;
+        if(root->val == (root->left->val  + root->right->val)){
+            checked_result=true;
+        }
+        return checked_result;
+    }
+};

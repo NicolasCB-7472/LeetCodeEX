@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        int aux=1;
+        vector<string> solucion;
+        while(aux<=n){
+            if((aux % 5 == 0) && (aux % 3 == 0)){
+                solucion.push_back("FizzBuzz");
+            }else if(aux % 5 == 0){
+                solucion.push_back("Buzz");
+            }else if(aux % 3 == 0){
+                solucion.push_back("Fizz");
+            }else{
+                solucion.push_back(to_string(aux));
+            }
+            aux++;
+        }
+        return solucion;
+    }
+};

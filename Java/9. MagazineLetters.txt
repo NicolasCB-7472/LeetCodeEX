@@ -1,0 +1,29 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        //Hash init
+        HashMap<Character, Integer> magazineLetters = new HashMap<>();
+        boolean result=true;
+        //Travel through word 1
+        for(int i=0; i < magazine.length();i++){
+            char m = magazine.charAt(i);
+
+            //Hash operations
+            int currentCount = magazineLetters.getOrDefault(m, 0);
+            magazineLetters.put(m, currentCount+1);
+        }
+        //Travel and compare second word
+        for(int j=0; j < ransomNote.length(); j++){
+            //Get second word
+            char n = ransomNote.charAt(j);
+
+            int currentCount = magazineLetters.getOrDefault(n, 0);
+            //Compare if it has any letters left
+            if(currentCount == 0){
+                result=false;
+            }
+            //Rest counted letter instance by 1
+            magazineLetters.put(n, currentCount -1);
+        }
+        return result;
+    }
+}
