@@ -1,0 +1,16 @@
+'optimal solution'
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int greatestSoFar = arr[arr.length-1];
+        for(int i = arr.length-2; i >= 0; i--){
+            if(arr[i] > greatestSoFar){
+                int temp = arr[i];
+                arr[i] = greatestSoFar;
+                greatestSoFar = temp;
+            } else arr[i] = greatestSoFar;
+        }
+        arr[arr.length-1] = -1;
+        System.out.println(Arrays.toString(arr));
+        return arr;
+    }
+}
