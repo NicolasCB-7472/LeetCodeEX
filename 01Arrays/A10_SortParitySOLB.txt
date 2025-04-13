@@ -13,7 +13,7 @@ class Solution {
                 temp=nums[header];
                 nums[header]=nums[tail];
                 nums[tail]=temp;
-		header++; tail++;
+		header++; tail--;
             }
         }
         
