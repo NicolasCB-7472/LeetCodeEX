@@ -1,0 +1,29 @@
+//This has a problem with any set involving 0, that is because number constraints indicate numbers size of int, fun.
+//WRONG SOLUTION
+class Solution {
+    public int thirdMax(int[] nums) {
+        int[] maximum = {0,0,0};
+        int third_max=0;
+        int index=2;
+        
+        Arrays.sort(nums);
+        
+        for(int i=nums.length-1; (i>=0) && (index>=0);i--){
+            if(nums[i] != maximum[2] && nums[i] != maximum[1] && nums[i] != maximum[0] || nums[i] == 0){    
+                    maximum[index]=nums[i];           
+                    index--;
+            }
+        }
+        
+        if(maximum[0] == 0){
+            third_max=maximum[2];
+        }else if(maximum[0] != 0){
+            third_max=maximum[0];
+        }else{
+            System.out.println("error");
+        }
+        
+        return third_max;
+        
+    }
+}

@@ -1,0 +1,32 @@
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+	//WRONG ANSWER
+        List<Integer> solucion = new ArrayList();
+        int index=0;
+        int diff=0;
+        int aux=1;
+        Arrays.sort(nums);
+        
+        //Removes duplicates
+        for(int i=0; i<nums.length; i++){
+            while((i+1< nums.length) && (nums[i] == nums[i+1])){
+                i++;
+            }
+            nums[index]=nums[i];
+            index++;
+        }
+        
+        //Adds non-matches
+        for(int i=0; i<index-1; i++){
+            diff=nums[i+1]-nums[i];
+            aux=1;
+            while(diff>1){
+                solucion.add(nums[i]+aux);
+                diff--;
+                aux++;
+            }
+        }
+        
+        return solucion;
+    }
+}

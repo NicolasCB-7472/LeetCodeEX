@@ -1,0 +1,22 @@
+class Solution {
+    public int heightChecker(int[] heights) {
+        int[] sorted_heights = new int[heights.length];
+        int match_number=0;
+        
+        //Copy array into new one to sort it
+        for(int i=0; i<heights.length; i++){
+            sorted_heights[i]=heights[i];
+        }
+        
+        Arrays.sort(sorted_heights);
+        
+        //Compare
+        for(int j=0; j<heights.length; j++){
+            if(sorted_heights[j]!=heights[j]){
+                match_number++;
+            }
+        }
+        
+        return match_number;
+    }
+}

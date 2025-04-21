@@ -1,0 +1,18 @@
+//Hashmap is not part of leetcode Array 
+class Solution {
+    public int thirdMax(int[] nums) {
+        Set<Integer> s=new HashSet<>();
+        for(int i:nums){//for removing duplicate
+            s.add(i);
+        }
+        int k=0;
+        int[] a=new int[s.size()];
+        for(int i:s){//convert back to array
+            a[k]=i;
+            k++;
+        }
+        Arrays.sort(a);//sorting the array
+        if(a.length<3) return a[a.length-1];//if length is less then 3 then return max element 
+        return a[a.length-3];//return 3rd max element
+    }
+}
